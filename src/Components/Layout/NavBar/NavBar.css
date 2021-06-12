@@ -27,12 +27,12 @@
 }
 
 .main-navbar-container .navbar-links {
-  width: 60%;
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-right: 2rem;
+  margin-right: 4rem;
 }
 
 .main-navbar-container .navbar-links .navlink {
@@ -74,6 +74,8 @@
     flex-direction: column;
     width: 60px;
     cursor: pointer;
+    margin-right: 1rem;
+    -webkit-tap-highlight-color: transparent;
   }
   .main-navbar-container .burger .bur {
     width: 40px;
@@ -88,7 +90,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    margin: 1.5rem 0;
+    margin: 1.5rem 1rem;
   }
 
   .main-navbar-container .clicked {

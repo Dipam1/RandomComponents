@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import image from "../../../assets/image.png";
+import image from "../../../../assets/image.png";
 import { AiFillInstagram, AiFillLinkedin, TiTree } from "react-icons/all";
 import "./Card.css";
 
@@ -17,7 +17,7 @@ const Card = () => {
         }
       }}
     >
-      <img src={image} alt="" />
+      <img src={image} alt="" loading="lazy" />
       <div className={toggle}>
         Click Me!
         <div className="card-body">
@@ -31,7 +31,10 @@ const Card = () => {
           />
           <AiFillLinkedin
             onClick={() => {
-              window.open("https://www.linkedin.com/in/dipam-poudel/", "_blank");
+              window.open(
+                "https://www.linkedin.com/in/dipam-poudel/",
+                "_blank"
+              );
             }}
           />
           <TiTree

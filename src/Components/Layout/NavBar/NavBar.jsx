@@ -40,7 +40,11 @@ const NavBar = () => {
         <div className="bur"></div>
       </div>
       <div className={burgerClicked ? "clicked" : "none"}>
-        <div className="navlink">Cards</div>
+        <div className="navlink">
+          <Link to="/cards" onClick={() => setBurgerClicked(!burgerClicked)}>
+            Cards
+          </Link>
+        </div>
         <div className="navlink">Talk</div>
         <div className="navlink">Hello</div>
         <div className="navlink">Lively</div>
