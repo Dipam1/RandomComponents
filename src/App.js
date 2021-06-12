@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import PeopleCards from "./Components/PeopleCards/PeopleCards";
+import NavBar from "./Components/Layout/NavBar/NavBar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ScrollToTop from "./Components/Layout/ScrollToTop/ScrollToTop";
+import { AiOutlineToTop } from "react-icons/all";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <ScrollToTop />
+        <NavBar />
+        <div className="content">
+          <Switch>
+            <Route path="/cards" component={PeopleCards} />
+          </Switch>
+        </div>
+      </Router>
+      <div className="scroll-to-top-button">
+        <AiOutlineToTop size={25} onClick={() => window.scrollTo(0, 0)} />
+      </div>
     </div>
   );
 }
