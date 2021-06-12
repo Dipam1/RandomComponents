@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import PeopleCards from "./Components/UI/PeopleCards/PeopleCards";
 import NavBar from "./Components/Layout/NavBar/NavBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -7,6 +8,15 @@ import "./App.css";
 import Home from "./Components/UI/Home/Home";
 
 function App() {
+  const [scroll, setScroll] = useState("scroll-to-top-button display-none");
+  window.onscroll = () => {
+    if (window.scrollY > 800) {
+      setScroll("scroll-to-top-button");
+      return;
+    }
+    setScroll("scroll-to-top-button display-none");
+  };
+
   return (
     <div className="App">
       <Router>
@@ -21,7 +31,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-      <div className="scroll-to-top-button">
+      <div className={scroll}>
         <AiOutlineToTop size={25} onClick={() => window.scrollTo(0, 0)} />
       </div>
     </div>

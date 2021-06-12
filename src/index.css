@@ -15,3 +15,7 @@ code {
   --primary-color: #39c531;
   --secondary-color: #ce2a7c;
 }
+
+.display-none {
+  display: none;
+}

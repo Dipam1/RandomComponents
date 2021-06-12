@@ -60,7 +60,7 @@
 }
 
 .main-navbar-container .selected {
-  color: var(--secondary-color)!important;
+  color: var(--secondary-color) !important;
 }
 
 @media screen and (max-width: 850px) {
@@ -93,6 +93,14 @@
     margin: 1.5rem 1rem;
   }
 
+  .main-navbar-container .cross .bur {
+    background: var(--secondary-color);
+  }
+
+  .main-navbar-container .clicked > body {
+    overflow: hidden;
+  }
+
   .main-navbar-container .clicked {
     display: flex;
     position: fixed;
@@ -100,7 +108,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: var(--secondary-color);
+    background: var(--primary-color);
     z-index: 100;
     justify-content: space-around;
     flex-direction: column;
