@@ -1,0 +1,36 @@
+.gallary-container {
+  margin: 0 3%;
+  margin-top: 5rem;
+}
+
+.gallary-container .file-upload svg {
+  color: white;
+}
+.gallary-container .file-upload {
+  cursor: pointer;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallary-container .images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, max-content));
+  grid-gap: 1rem;
+  justify-content: center;
+  padding: initial;
+}
+
+.gallary-container .images img {
+  list-style-type: none;
+  height: 300px;
+  width: 380px;
+  object-fit: cover;
+  border-radius: 3px;
+}

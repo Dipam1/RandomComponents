@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.card:hover{
+  transition: 1s;
+}
+
 .card img {
   width: 100%;
   height: 100%;
@@ -33,7 +37,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #38c531a7;
+  background-color: #89ec6ea7;
   transform: translateY(360px);
   text-align: center;
   color: white;

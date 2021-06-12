@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import image from "../../../../assets/image.png";
 import { AiFillInstagram, AiFillLinkedin, TiTree } from "react-icons/all";
+import { motion } from "framer-motion";
 import "./Card.css";
 
-const Card = () => {
+const Card = ({ time }) => {
   const [toggle, settoggle] = useState("info");
-
+  const spring = {
+    type: "spring",
+    damping: 10,
+    stiffness: 100,
+  };
   return (
-    <div
+    <motion.div
       className="card"
       onClick={() => {
         if (toggle === "info") {
@@ -16,6 +21,10 @@ const Card = () => {
           settoggle("info");
         }
       }}
+      initial={{ x: "-10vh" }}
+      animate={{ x: 0 }}
+      whileHover={{ scale: 1.05 }}
+      transition={spring}
     >
       <img src={image} alt="" loading="lazy" />
       <div className={toggle}>
@@ -44,7 +53,7 @@ const Card = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

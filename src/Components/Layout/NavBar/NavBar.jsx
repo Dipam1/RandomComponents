@@ -18,11 +18,11 @@ const NavBar = () => {
         </div>
         <div className="navlink">
           <NavLink
-            to="/asd"
+            to="/gallary"
             activeClassName="selected"
             onClick={() => setBurgerClicked(!burgerClicked)}
           >
-            Talk
+            Gallary
           </NavLink>
         </div>
         <div className="navlink">

@@ -6,6 +6,7 @@ import ScrollToTop from "./Components/Layout/ScrollToTop/ScrollToTop";
 import { AiOutlineToTop } from "react-icons/all";
 import "./App.css";
 import Home from "./Components/UI/Home/Home";
+import Gallary from "./Components/UI/Gallary/Gallary";
 
 function App() {
   const [scroll, setScroll] = useState("scroll-to-top-button display-none");
@@ -24,10 +25,13 @@ function App() {
         <NavBar />
         <div className="content">
           <Switch>
-            <Route path="/cards" component={PeopleCards} />
+            <Route path="/" exact component={Home} />
           </Switch>
           <Switch>
-            <Route path="/" exact component={Home} />
+            <Route path="/cards" exact component={PeopleCards} />
+          </Switch>
+          <Switch>
+            <Route path="/gallary" exact component={Gallary} />
           </Switch>
         </div>
       </Router>
