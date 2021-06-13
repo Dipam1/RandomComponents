@@ -23,6 +23,7 @@ function App() {
       <Router>
         <ScrollToTop />
         <NavBar />
+        <div style={{ marginBottom: "85px" }} />
         <div className="content">
           <Switch>
             <Route path="/" exact component={Home} />

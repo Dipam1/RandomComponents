@@ -1,9 +1,19 @@
 .main-navbar-container {
-  /* position: fixed; */
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 70px;
+}
+
+.father {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: 70px;
+  z-index: 10000;
+  background: #fff;
 }
 
 .main-navbar-container a,

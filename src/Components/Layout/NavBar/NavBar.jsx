@@ -11,7 +11,7 @@ const NavBar = () => {
           <NavLink
             to="/cards"
             activeClassName="selected"
-            onClick={() => setBurgerClicked(!burgerClicked)}
+            onClick={() => setBurgerClicked(false)}
           >
             Cards
           </NavLink>
@@ -20,7 +20,7 @@ const NavBar = () => {
           <NavLink
             to="/gallary"
             activeClassName="selected"
-            onClick={() => setBurgerClicked(!burgerClicked)}
+            onClick={() => setBurgerClicked(false)}
           >
             Gallary
           </NavLink>
@@ -29,7 +29,7 @@ const NavBar = () => {
           <NavLink
             to="/asdsa"
             activeClassName="selected"
-            onClick={() => setBurgerClicked(!burgerClicked)}
+            onClick={() => setBurgerClicked(false)}
           >
             Hello
           </NavLink>
@@ -38,7 +38,7 @@ const NavBar = () => {
           <NavLink
             to="/asdasd"
             activeClassName="selected"
-            onClick={() => setBurgerClicked(!burgerClicked)}
+            onClick={() => setBurgerClicked(false)}
           >
             Lively
           </NavLink>
@@ -47,23 +47,25 @@ const NavBar = () => {
     );
   };
   return (
-    <div className="main-navbar-container">
-      <div className="logo">
-        <Link to="/">LOGO</Link>
-      </div>
-      <div className="navbar-links">
-        <NAVLINKS />
-      </div>
-      <div
-        className={`${burgerClicked ? "burger cross" : "burger"}`}
-        onClick={() => setBurgerClicked(!burgerClicked)}
-      >
-        <div className="bur"></div>
-        <div className="bur"></div>
-        <div className="bur"></div>
-      </div>
-      <div className={burgerClicked ? "clicked" : "none"}>
-        <NAVLINKS />
+    <div className="father">
+      <div className="main-navbar-container">
+        <div className="logo">
+          <Link to="/">LOGO</Link>
+        </div>
+        <div className="navbar-links">
+          <NAVLINKS />
+        </div>
+        <div
+          className={`${burgerClicked ? "burger cross" : "burger"}`}
+          onClick={() => setBurgerClicked(!burgerClicked)}
+        >
+          <div className="bur"></div>
+          <div className="bur"></div>
+          <div className="bur"></div>
+        </div>
+        <div className={burgerClicked ? "clicked" : "none"}>
+          <NAVLINKS />
+        </div>
       </div>
     </div>
   );
