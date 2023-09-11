@@ -31,6 +31,7 @@ const Wordle = () => {
 
   useEffect(() => {
     setTheWord(commonWords[Math.floor(Math.random() * 637)]);
+    console.log(theWord);
   }, []);
 
   const handleKeyDown = (event) => {
@@ -71,6 +72,7 @@ const Wordle = () => {
       settextWord("");
       changeColor(aaru);
     } else {
+      console.log("first");
       toast.error("The word does not exist 😔");
     }
 
@@ -125,7 +127,6 @@ const Wordle = () => {
           onChange={(event) =>
             settextWord(event.target.value.toLocaleLowerCase())
           }
-          
         />
       </div>
       <div className="keyboard">
