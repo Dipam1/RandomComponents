@@ -1,0 +1,77 @@
+.wordle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(238, 245, 238, 0.428);
+  position: relative;
+  font-family: 'Roboto Condensed', sans-serif!important;
+}
+.wordle-container .modal{
+  position: absolute;
+
+  height: 100px;
+  width: 200px;
+
+  background-color: white;
+}
+.wordle-container h1 {
+  margin: 10px 0;
+}
+.wordle-small {
+  width: 360px;
+  background-color: rgb(79, 124, 135);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 2rem;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.wordle-small .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 15px 10px;
+}
+
+.wordle-small .row .item {
+  width: 80px;
+  height: 50px;
+  border: 0.5px solid rgba(14, 15, 14, 0.551);
+  background-color: rgba(18, 19, 18, 0.551);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: capitalize;
+
+  color: beige;
+}
+
+.wordle-small input {
+  margin: 30px 4rem 10px 4rem;
+  padding: 10px 2px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.black {
+  background-color: rgb(62, 29, 29) !important;
+}
+.green {
+  background-color: rgb(44, 115, 44) !important;
+}
+.yellow {
+  background-color: #cfbd21 !important;
+}
+
+.keyboard{
+  width: 500px;
+}

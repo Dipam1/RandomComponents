@@ -27,22 +27,14 @@ const NavBar = () => {
         </div>
         <div className="navlink">
           <NavLink
-            to="/asdsa"
+            to="/wordle"
             activeClassName="selected"
             onClick={() => setBurgerClicked(false)}
           >
-            Hello
+            Wordle
           </NavLink>
         </div>
-        <div className="navlink">
-          <NavLink
-            to="/asdasd"
-            activeClassName="selected"
-            onClick={() => setBurgerClicked(false)}
-          >
-            Lively
-          </NavLink>
-        </div>
+       
       </>
     );
   };

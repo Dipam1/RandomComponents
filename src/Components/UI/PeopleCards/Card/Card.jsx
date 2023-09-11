@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import image from "../../../../assets/image.png";
 import { AiFillInstagram, AiFillLinkedin, TiTree } from "react-icons/all";
 import { motion } from "framer-motion";
 import "./Card.css";
@@ -26,7 +25,7 @@ const Card = ({ time }) => {
       whileHover={{ scale: 1.05 }}
       transition={spring}
     >
-      <img src={image} alt="" loading="lazy" />
+      <img src={`https://picsum.photos/${Math.floor(Math.random() * 389 + 401)}`} alt="" loading="lazy" />
       <div className={toggle}>
         Click Me!
         <div className="card-body">

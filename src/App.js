@@ -7,6 +7,7 @@ import { AiOutlineToTop } from "react-icons/all";
 import "./App.css";
 import Home from "./Components/UI/Home/Home";
 import Gallary from "./Components/UI/Gallary/Gallary";
+import Wordle from "./Components/UI/Wordle/Wordle";
 
 function App() {
   const [scroll, setScroll] = useState("scroll-to-top-button display-none");
@@ -30,6 +31,9 @@ function App() {
           </Switch>
           <Switch>
             <Route path="/cards" exact component={PeopleCards} />
+          </Switch>
+          <Switch>
+            <Route path="/wordle" exact component={Wordle} />
           </Switch>
           <Switch>
             <Route path="/gallary" exact component={Gallary} />
