@@ -3,7 +3,7 @@ import { AiFillInstagram, AiFillLinkedin, TiTree } from "react-icons/all";
 import { motion } from "framer-motion";
 import "./Card.css";
 
-const Card = ({ time }) => {
+const Card = ({item}) => {
   const [toggle, settoggle] = useState("info");
   const spring = {
     type: "spring",
@@ -25,7 +25,7 @@ const Card = ({ time }) => {
       whileHover={{ scale: 1.05 }}
       transition={spring}
     >
-      <img src={`https://picsum.photos/${Math.floor(Math.random() * 389 + 401)}`} alt="" loading="lazy" />
+      <img src={`https://picsum.photos/40${item}/400`} alt="" loading="lazy" />
       <div className={toggle}>
         Click Me!
         <div className="card-body">
