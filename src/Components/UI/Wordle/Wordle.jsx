@@ -5,7 +5,6 @@ import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import { toast } from "react-toastify";
 import "./Wordle.css";
-import KeyboardReact from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
 const Wordle = () => {
@@ -84,10 +83,6 @@ const Wordle = () => {
     }
   };
 
-  const onKeyChange = () => {};
-
-  const onKeyPress = () => {};
-
   return (
     <div className="wordle-container">
       <Confetti
@@ -130,7 +125,6 @@ const Wordle = () => {
         />
       </div>
       <div className="keyboard">
-        <KeyboardReact onChange={onKeyChange} onKeyPress={onKeyPress} />
       </div>
     </div>
   );
