@@ -10508,6 +10508,11 @@
   "resolved" "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.3.tgz"
   "version" "3.0.3"
 
+"simple-keyboard@^3.8.3":
+  "integrity" "sha512-Df2W2HCawUgMAnkJGcYrBRUk/L/Euyv0y0g1UmfbbPdoLPQZrIws0i4IZ+Yk442VJWx7D6y7ugTacKo//t5Cuw=="
+  "resolved" "https://registry.npmjs.org/simple-keyboard/-/simple-keyboard-3.8.3.tgz"
+  "version" "3.8.3"
+
 "simple-swizzle@^0.2.2":
   "integrity" "sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo= sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg=="
   "resolved" "https://registry.npmjs.org/simple-swizzle/-/simple-swizzle-0.2.2.tgz"

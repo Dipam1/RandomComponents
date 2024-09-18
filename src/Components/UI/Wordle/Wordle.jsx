@@ -8,29 +8,35 @@ import "./Wordle.css";
 import "react-simple-keyboard/build/css/index.css";
 
 const Wordle = () => {
-  const [words, setwords] = useState([
+  const [stateOfColors, setStateOfColors] = useState({});
+  const [words, setWords] = useState([
     ["", "", "", "", ""],
     ["", "", "", "", ""],
     ["", "", "", "", ""],
     ["", "", "", "", ""],
     ["", "", "", "", ""],
   ]);
-  const [colors, setcolors] = useState([
+  const [colors, setColors] = useState([
     ["gray", "gray", "gray", "gray", "gray"],
     ["gray", "gray", "gray", "gray", "gray"],
     ["gray", "gray", "gray", "gray", "gray"],
     ["gray", "gray", "gray", "gray", "gray"],
     ["gray", "gray", "gray", "gray", "gray"],
   ]);
-  const [textWord, settextWord] = useState("");
-  const [counter, setcounter] = useState(0);
+  const [textWord, setTextWord] = useState("");
+  const [counter, setCounter] = useState(0);
   const [theWord, setTheWord] = useState("");
   const [numberOfPieces, setNumberOfPieces] = useState(0);
   const { width, height } = useWindowSize();
 
   useEffect(() => {
-    setTheWord(commonWords[Math.floor(Math.random() * 637)]);
-    console.log(theWord);
+    const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+    const initialColors = letters.reduce((acc, letter) => {
+      acc[letter] = "gray";
+      return acc;
+    }, {});
+    setStateOfColors(initialColors);
+    setTheWord(commonWords[Math.floor(Math.random() * commonWords.length)]);
   }, []);
 
   const handleKeyDown = (event) => {
@@ -39,52 +45,58 @@ const Wordle = () => {
     }
   };
 
-  const changeColor = (aaru) => {
+  const onKeyPress = (button) => {
+    if (textWord.length < 5) {
+      setTextWord(textWord + button);
+    }
+  };
+
+  const changeColor = (guessedWords) => {
     const tempColors = [...colors];
-    tempColors[counter] = ["black", "black", "black", "black", "black"];
-    aaru[counter].forEach((letter, index) => {
-      if (theWord.includes(letter)) {
-        tempColors[counter][index] = "yellow";
-      }
-    });
-    aaru[counter].forEach((letter, index) => {
+    const updatedStateOfColors = { ...stateOfColors };
+
+    guessedWords[counter].forEach((letter, index) => {
       if (theWord.charAt(index) === letter) {
         tempColors[counter][index] = "green";
+        updatedStateOfColors[letter] = "green";
+      } else if (theWord.includes(letter)) {
+        tempColors[counter][index] = "yellow";
+        updatedStateOfColors[letter] = "yellow";
+      } else {
+        updatedStateOfColors[letter] = updatedStateOfColors[letter] === "green" ? "green" : "red";
       }
     });
 
-    setcolors(tempColors);
-    setcounter(counter + 1);
+    setColors(tempColors);
+    setStateOfColors(updatedStateOfColors);
+    setCounter(counter + 1);
   };
 
   const checkIfItsThere = () => {
     if (allWords.includes(textWord)) {
-      const aaru = [...words];
-      aaru[counter] = [
-        textWord.charAt(0),
-        textWord.charAt(1),
-        textWord.charAt(2),
-        textWord.charAt(3),
-        textWord.charAt(4),
-      ];
-      setwords(aaru);
-      settextWord("");
-      changeColor(aaru);
-    } else {
-      console.log("first");
-      toast.error("The word does not exist 😔");
-    }
+      const newWords = [...words];
+      newWords[counter] = textWord.split("");
+      setWords(newWords);
+      setTextWord("");
+      changeColor(newWords);
 
-    if (textWord === theWord) {
-      setNumberOfPieces(800);
-      setTimeout(() => {
-        setNumberOfPieces(0);
-      }, 10000);
+      if (textWord === theWord) {
+        setNumberOfPieces(800);
+        setTimeout(() => {
+          setNumberOfPieces(0);
+        }, 10000);
+      }
+    } else {
+      toast.error("The word does not exist 😔");
     }
   };
 
   return (
     <div className="wordle-container">
+      <h1>
+        Wordle <br />
+        {counter > 4 ? `The word is ${theWord}` : ""}
+      </h1>
       <Confetti
         width={width - 10}
         height={height - 10}
@@ -93,38 +105,51 @@ const Wordle = () => {
         opacity={0.5}
         style={{ position: "fixed" }}
       />
-      <h1>
-        Wordle <br />
-        {counter > 4 ? "The word is " + theWord : ""}
-      </h1>
-      <div className="wordle-small">
-        {words.map((word, index1) => {
-          return (
-            <div className="row" key={index1}>
-              {word.map((letter, index2) => {
-                return (
-                  <div
-                    className={`item ${colors[index1][index2]}`}
-                    key={index2}
-                  >
-                    {letter}
-                  </div>
-                );
-              })}
+      <div className="wordle-keyboard-flex">
+        <div className="wordle-small">
+          {words.map((word, rowIndex) => (
+            <div className="row" key={rowIndex}>
+              {word.map((letter, colIndex) => (
+                <div
+                  className={`item ${colors[rowIndex][colIndex]}`}
+                  key={colIndex}
+                >
+                  {letter}
+                </div>
+              ))}
             </div>
-          );
-        })}
-        <input
-          type="text"
-          onKeyDown={handleKeyDown}
-          maxLength={5}
-          value={textWord}
-          onChange={(event) =>
-            settextWord(event.target.value.toLocaleLowerCase())
-          }
-        />
-      </div>
-      <div className="keyboard">
+          ))}
+          <input
+            type="text"
+            onKeyDown={handleKeyDown}
+            maxLength={5}
+            value={textWord}
+            onChange={(event) =>
+              setTextWord(event.target.value.toLowerCase())
+            }
+          />
+        </div>
+        <div className="keyboard">
+          <div className="keyboard-layout">
+            {[
+              "qwertyuiop".split(""),
+              "asdfghjkl".split(""),
+              "zxcvbnm".split(""),
+            ].map((row, rowIndex) => (
+              <div className="row" key={rowIndex}>
+                {row.map((key) => (
+                  <button
+                    className={stateOfColors[key]}
+                    onClick={() => onKeyPress(key)}
+                    key={key}
+                  >
+                    {key}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
